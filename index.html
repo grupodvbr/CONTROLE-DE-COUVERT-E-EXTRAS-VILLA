@@ -268,24 +268,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const nomeDigitado = profissional.value.trim().toUpperCase();
       const p = profissionais.find(p => p.nome.trim().toUpperCase() === nomeDigitado);
 
-      if (p) {
-        funcao.value = p.funcao || '';
-        dadosPix.value = p.pix || '';
-        titularConta.value = p.titular || '';
-        valorAcordado.value = p.valor || '';
-        cpfCnpj.value = p.cpf || '';
+if (p) {
 
-        funcao.readOnly = true;
-        dadosPix.readOnly = true;
-        titularConta.readOnly = true;
-        valorAcordado.readOnly = false;
-        cpfCnpj.readOnly = true;
-        funcao.style.background = '#eee';
-        dadosPix.style.background = '#eee';
-        titularConta.style.background = '#eee';
-        cpfCnpj.style.background = '#eee';
-        valorAcordado.style.background = '';
-      } else {
+  funcao.value = p.funcao || '';
+  dadosPix.value = p.pix || '';
+  titularConta.value = p.titular || '';
+  valorAcordado.value = p.valor || '';
+  cpfCnpj.value = p.cpf || '';
+
+  funcao.readOnly = true;
+  cpfCnpj.readOnly = true;
+
+  /* PERMITIR EDITAR */
+  dadosPix.readOnly = false;
+  titularConta.readOnly = false;
+
+  funcao.style.background = '#eee';
+  cpfCnpj.style.background = '#eee';
+
+  dadosPix.style.background = '';
+  titularConta.style.background = '';
+  valorAcordado.style.background = '';
+}
+else {
         funcao.value = '';
         dadosPix.value = '';
         titularConta.value = '';
