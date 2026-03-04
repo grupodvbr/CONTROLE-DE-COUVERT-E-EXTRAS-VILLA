@@ -270,28 +270,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 if (p) {
 
-if (p) {
-
   funcao.value = p.funcao || '';
   dadosPix.value = p.pix || '';
   titularConta.value = p.titular || '';
   valorAcordado.value = p.valor || '';
   cpfCnpj.value = p.cpf || '';
 
-  /* BLOQUEADOS */
   funcao.readOnly = true;
+  cpfCnpj.readOnly = true;
 
-  /* EDITÁVEIS */
+  /* PERMITIR EDITAR */
   dadosPix.readOnly = false;
   titularConta.readOnly = false;
-  cpfCnpj.readOnly = false;
-  valorAcordado.readOnly = false;
 
   funcao.style.background = '#eee';
+  cpfCnpj.style.background = '#eee';
 
   dadosPix.style.background = '';
   titularConta.style.background = '';
-  cpfCnpj.style.background = '';
   valorAcordado.style.background = '';
 }
 else {
