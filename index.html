@@ -267,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('profissional').addEventListener('input', () => {
       const nomeDigitado = profissional.value.trim().toUpperCase();
       const p = profissionais.find(p => p.nome.trim().toUpperCase() === nomeDigitado);
-
 if (p) {
 
   funcao.value = p.funcao || '';
@@ -276,18 +275,20 @@ if (p) {
   valorAcordado.value = p.valor || '';
   cpfCnpj.value = p.cpf || '';
 
+  /* BLOQUEADOS */
   funcao.readOnly = true;
-  cpfCnpj.readOnly = true;
 
-  /* PERMITIR EDITAR */
+  /* EDITÁVEIS */
   dadosPix.readOnly = false;
   titularConta.readOnly = false;
+  cpfCnpj.readOnly = false;
+  valorAcordado.readOnly = false;
 
   funcao.style.background = '#eee';
-  cpfCnpj.style.background = '#eee';
 
   dadosPix.style.background = '';
   titularConta.style.background = '';
+  cpfCnpj.style.background = '';
   valorAcordado.style.background = '';
 }
 else {
