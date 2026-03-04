@@ -320,11 +320,14 @@ else {
     });
 
 function verificarDuplicidade(novoLancamento) {
+
+  const cpfNovo = String(novoLancamento.cpf || '').replace(/\D/g,'');
+
   return dadosLancamentos.find(item => {
 
-    const mesmaPessoa =
-      (item.cpf || '').replace(/\D/g,'') ===
-      (novoLancamento.cpf || '').replace(/\D/g,'');
+    const cpfItem = String(item.cpf || '').replace(/\D/g,'');
+
+    const mesmaPessoa = cpfItem === cpfNovo;
 
     const mesmaData =
       (item.data || '').split('T')[0] === novoLancamento.data;
@@ -419,8 +422,7 @@ form.addEventListener('submit', e => {
             <td>R$ ${(item.desconto || 0).toFixed(2)}</td>
             <td>R$ ${(item.valorFinal || 0).toFixed(2)}</td>
             <td>${item.dataPagamento ? new Date(item.dataPagamento).toLocaleDateString('pt-BR') : ''}</td>
-            <td>${item.cpf || ''}</td>
-
+            <td>${String(item.cpf || '')}</td>
             <td>
               <select onchange="atualizarStatus(this, ${item.index})">
                 <option value="PENDENTE" ${item.status === 'PENDENTE' ? 'selected' : ''}>PENDENTE</option>
